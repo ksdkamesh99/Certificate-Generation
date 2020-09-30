@@ -28,10 +28,22 @@ name=dataset['Name']
 event=dataset['Event']
 serial=dataset['Serial No']
 
+
+font = [cv2.FONT_HERSHEY_TRIPLEX,
+cv2.FONT_HERSHEY_COMPLEX_SMALL,
+cv2.FONT_HERSHEY_SCRIPT_COMPLEX,
+cv2.FONT_HERSHEY_SCRIPT_SIMPLEX,
+cv2.FONT_HERSHEY_SIMPLEX,
+cv2.FONT_HERSHEY_PLAIN,
+cv2.FONT_HERSHEY_DUPLEX,
+cv2.FONT_HERSHEY_COMPLEX]
+
+print('1.FONT_HERSHEY_TRIPLEX  2.FONT_HERSHEY_COMPLEX_SMALL  3.FONT_HERSHEY_SCRIPT_COMPLEX  4.FONT_HERSHEY_SCRIPT_SIMPLEX  5.cv2.FONT_HERSHEY_SIMPLEX  6.FONT_HERSHEY_PLAIN  7.cv2.FONT_HERSHEY_DUPLEX  8.cv2.FONT_HERSHEY_COMPLEX')
+x = int(input("Enter an Integer between 1 to 8 ")) - 1
 for i in range(len(name)):
   image=np.array(img)
-  cv2.putText(image,name[i],(550,450),cv2.FONT_HERSHEY_SIMPLEX,1,(0,0,0),cv2.LINE_4)
-  cv2.putText(image,event[i],(550,590),cv2.FONT_HERSHEY_SIMPLEX,1,(0,0,0),cv2.LINE_4)
+  cv2.putText(image,name[i],(550,450),font[x],1,(0,0,0),cv2.LINE_4)
+  cv2.putText(image,event[i],(550,590),font[x],1,(0,0,0),cv2.LINE_4)
   cv2.putText(image,"Serial No:-"+serial[i],(1100,230),cv2.FONT_HERSHEY_COMPLEX_SMALL,1,(0,0,0),1)
   no=serial[i].replace('TCF/NITP/','')
   print(no)
